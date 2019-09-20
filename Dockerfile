@@ -1,7 +1,7 @@
 FROM ubuntu:18.04
-MAINTAINER Marco Pantaleoni <marco.pantaleoni@gmail.com>
+MAINTAINER angel <ugeekpodcast@gmail.com>
 
-RUN echo "Europe/Rome" > /etc/timezone
+RUN echo "Europe/madrid" > /etc/timezone
 # RUN sudo ln -fs /usr/share/zoneinfo/Europe/Rome /etc/localtime
 
 RUN apt-get update -q && \
@@ -30,7 +30,7 @@ RUN mkdir -p /root/.vnc
 COPY xstartup /root/.vnc/
 RUN chmod a+x /root/.vnc/xstartup
 RUN touch /root/.vnc/passwd
-RUN /bin/bash -c "echo -e 'password\npassword\nn' | vncpasswd" > /root/.vnc/passwd
+RUN /bin/bash -c "echo -e 'password' | vncpasswd" > /root/.vnc/passwd
 RUN chmod 400 /root/.vnc/passwd
 RUN chmod go-rwx /root/.vnc
 RUN touch /root/.Xauthority
