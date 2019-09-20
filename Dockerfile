@@ -30,7 +30,7 @@ RUN mkdir -p /root/.vnc
 COPY xstartup /root/.vnc/
 RUN chmod a+x /root/.vnc/xstartup
 RUN touch /root/.vnc/passwd
-RUN /bin/bash -c "echo -e 'password' | vncpasswd" > /root/.vnc/passwd
+RUN /bin/bash -c "echo -e 'password\npassword\nn' | vncpasswd" > /root/.vnc/passwd
 RUN chmod 400 /root/.vnc/passwd
 RUN chmod go-rwx /root/.vnc
 RUN touch /root/.Xauthority
